@@ -31,9 +31,31 @@ namespace Exercise1
             //Console.WriteLine(fac);
             //Console.ResetColor();
             //goto cd;
-            Dice dice = new Dice();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(dice.Roll());
+            //Dice dice = new Dice();
+            //Console.ForegroundColor = ConsoleColor.Red;
+            ////Console.WriteLine(dice.Roll());
+
+            Console.WriteLine("Number of songs");
+            int numberOfSongs = int.Parse(Console.ReadLine());
+            int sn = numberOfSongs-1;
+            string[] allSongs = new string[numberOfSongs];
+            Console.WriteLine("Enter following: [List Type]_[Name of song]_[time]");
+            while (true)
+            {
+                string song = Console.ReadLine();
+                string[] songs = song.Split("_");
+                Song s = new Song(songs);
+                numberOfSongs--;
+                int i = sn - numberOfSongs;
+                allSongs[i] = s.Name;
+                if (numberOfSongs == 0) break;
+            }
+
+            Console.WriteLine("Name of all songs");
+            foreach (string a in allSongs)
+            {
+                Console.WriteLine(a.ToString());
+            }
         }
     }
 }
